@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background-color: rgba(201, 146, 42, 0.3);
+    color: #f0e6d0;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #060401;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #3d3218;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c9922a;
+  }
+}
+
+@layer utilities {
+  /* Grain texture overlay on the body */
+  .grain-overlay::after {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.028;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+    background-repeat: repeat;
+  }
+
+  /* Gold clip text */
+  .text-gold-clip {
+    background-image: linear-gradient(135deg, #e8b94f 0%, #c9922a 50%, #e8b94f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Ornament divider */
+  .ornament-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .ornament-line::before,
+  .ornament-line::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201, 146, 42, 0.4));
+  }
+
+  .ornament-line::after {
+    background: linear-gradient(to left, transparent, rgba(201, 146, 42, 0.4));
+  }
+
+  /* Section number watermark */
+  .section-num {
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-size: clamp(6rem, 15vw, 14rem);
+    font-weight: 700;
+    color: rgba(34, 26, 15, 0.6);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: -0.05em;
+  }
+
+  /* Clip overflow for text reveal */
+  .clip-overflow {
+    overflow: hidden;
+  }
+
+  /* Card border glow */
+  .card-glow {
+    position: relative;
+  }
+
+  .card-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(201, 146, 42, 0.1);
+    pointer-events: none;
+    transition: border-color 0.4s ease;
+  }
+
+  .card-glow:hover::before {
+    border-color: rgba(201, 146, 42, 0.35);
+  }
+
+  /* Horizontal scroll no scrollbar */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
