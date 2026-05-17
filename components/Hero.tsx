@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import Image from "next/image";
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -81,6 +82,14 @@ export default function Hero() {
         <span className="section-num opacity-100 text-[25vw] text-royal-border/20 select-none leading-none font-display font-bold tracking-tight">
           SOB
         </span>
+
+        <Image
+          src="/home-biryani.png"
+          alt="biryani"
+          height={800}
+          width={800}
+          className="absolute right-0 lg:bottom-1/3 hero-word aspect-square size-1/2 max-md:hidden"
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-28 w-full">
@@ -96,18 +105,10 @@ export default function Hero() {
         {/* Main headline — each word clip-wrapped for GSAP reveal */}
         <div className="mb-10">
           <div className="clip-overflow mb-1">
-            <h1 className="hero-word font-display font-light text-7xl sm:text-8xl lg:text-9xl xl:text-[10rem] leading-none tracking-tight text-royal-cream">
-              Experience
-            </h1>
-          </div>
-          <div className="clip-overflow mb-1">
-            <h1 className="hero-word font-display font-light text-7xl sm:text-8xl lg:text-9xl xl:text-[10rem] leading-none tracking-tight italic text-gold-clip">
-              Royalty—
-            </h1>
-          </div>
-          <div className="clip-overflow">
-            <h1 className="hero-word font-display font-light text-7xl sm:text-8xl lg:text-9xl xl:text-[10rem] leading-none tracking-tight text-royal-cream">
-              Delivered
+            <h1 className="font-display font-light text-7xl sm:text-8xl lg:text-9xl xl:text-[10rem] leading-none tracking-tight text-royal-cream max-w-3xl">
+              <span className="hero-word">Experience</span>{" "}
+              <span className="hero-word italic text-gold-clip">Royalty—</span>{" "}
+              <span className="hero-word">Delivered</span>
             </h1>
           </div>
         </div>
@@ -115,34 +116,20 @@ export default function Hero() {
         {/* Ornamental divider */}
         <div className="hero-ornament flex items-center gap-5 mb-10 origin-left">
           <div className="flex-1 max-w-[14rem] h-px bg-gradient-to-r from-royal-gold-muted to-royal-gold/20" />
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            className="fill-royal-gold flex-shrink-0"
-          >
-            <path d="M10 0L12.2 7.2H20L13.9 11.6L16.2 18.9L10 14.5L3.8 18.9L6.1 11.6L0 7.2H7.8L10 0Z" />
-          </svg>
+
           <div className="hidden sm:block w-2 h-2 border border-royal-gold-muted rotate-45 flex-shrink-0" />
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            className="fill-royal-gold flex-shrink-0"
-          >
-            <path d="M10 0L12.2 7.2H20L13.9 11.6L16.2 18.9L10 14.5L3.8 18.9L6.1 11.6L0 7.2H7.8L10 0Z" />
-          </svg>
+
           <div className="flex-1 max-w-[14rem] h-px bg-gradient-to-l from-royal-gold-muted to-royal-gold/20" />
         </div>
 
         {/* Description */}
         <p className="hero-desc font-body text-base lg:text-lg text-royal-cream-muted leading-relaxed max-w-xl mb-10">
-          SOB – India's most leading biryani delivery chain. Fresh{" "}
+          SOB - India's most leading biryani delivery chain. Fresh{" "}
           <span className="text-royal-cream font-medium">
             dum-cooked biryanis
           </span>{" "}
           delivered to your door with authentic shaahi style—in just{" "}
-          <span className="text-royal-gold font-semibold">30–40 minutes.</span>
+          <span className="text-royal-gold font-semibold">30-40 minutes.</span>
         </p>
 
         {/* CTAs */}
@@ -194,16 +181,6 @@ export default function Hero() {
               </span>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* Scroll nudge */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
-        <span className="font-body text-[9px] tracking-[0.4em] uppercase text-royal-cream-dim rotate-0">
-          Scroll
-        </span>
-        <div className="relative w-px h-12 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-royal-gold to-transparent animate-float-slow" />
         </div>
       </div>
     </section>

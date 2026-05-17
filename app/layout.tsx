@@ -4,8 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "State of Biryani | Experience Royalty—Delivered",
   description:
-    "SOB – India's most leading biryani delivery chain. Fresh dum-cooked biryanis delivered to your door in 30–40 minutes.",
+    "SOB - India's most leading biryani delivery chain. Fresh dum-cooked biryanis delivered to your door in 30-40 minutes.",
   keywords: [
+    "biryani",
     "biryani delivery",
     "cloud kitchen",
     "dum biryani",

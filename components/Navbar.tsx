@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Link from "next/link";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "About", href: "#about" },
@@ -28,7 +29,7 @@ export default function Navbar() {
           stagger: 0.08,
           ease: "power3.out",
           delay: 0.4,
-        }
+        },
       );
     }, navRef);
 
@@ -53,15 +54,22 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="nav-animate flex items-center gap-4 group">
+          <Link
+            href="/"
+            className="nav-animate flex items-center gap-4 group"
+          >
             <div className="relative">
-              <span className="font-display text-2xl font-semibold text-royal-gold tracking-widest leading-none">
-                SOB
-              </span>
-              <div className="absolute -bottom-1 left-0 right-0 h-px bg-gradient-to-r from-royal-gold to-royal-gold-muted" />
+              <Image
+                src="/logo.png"
+                alt="biryani"
+                height={50}
+                width={50}
+                className="right-0"
+              />
             </div>
+
             <div className="hidden sm:flex flex-col">
-              <span className="font-body text-[10px] tracking-[0.35em] uppercase text-royal-cream-muted leading-none">
+              <span className="font-body font-medium text-[12px] tracking-[0.15em] uppercase text-royal-cream-muted leading-none">
                 State of Biryani
               </span>
               <span className="font-body text-[9px] tracking-[0.25em] uppercase text-royal-cream-dim leading-none mt-1">

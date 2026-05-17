@@ -25,6 +25,15 @@ const BIRYANI_TYPES = [
     notes: ["Kewra Water", "Rose Petals", "Mace", "Cardamom"],
     icon: "L",
   },
+  {
+    type: "Champaran Mutton",
+    style: "Pukki",
+    origin: "Northern India",
+    description:
+      "Inspired by the legendary flavors of Bihar, Champaran Mutton Biryani is a rich blend of tender mutton, aromatic rice, and handpicked spices slow-cooked to perfection. Prepared in authentic dum style, it delivers bold rustic flavors and an unforgettable royal taste in every bite.",
+    notes: ["Kewra Water", "Rose Petals", "Mace", "Cardamom"],
+    icon: "L",
+  },
 ];
 
 export default function Mission() {
@@ -45,7 +54,7 @@ export default function Mission() {
             trigger: ".mission-header",
             start: "top 80%",
           },
-        }
+        },
       );
 
       gsap.fromTo(
@@ -61,7 +70,7 @@ export default function Mission() {
             trigger: ".mission-cards",
             start: "top 78%",
           },
-        }
+        },
       );
 
       gsap.fromTo(
@@ -77,7 +86,7 @@ export default function Mission() {
             trigger: ".mission-cards",
             start: "top 70%",
           },
-        }
+        },
       );
     }, sectionRef);
 
@@ -119,13 +128,15 @@ export default function Mission() {
           <p className="font-body text-base lg:text-lg text-royal-cream-muted leading-relaxed">
             Reviving the essence of traditional dum cooking with rich, authentic
             flavors from across India—{" "}
-            <span className="text-royal-cream">Hyderabadi, Lucknowi, and Kolkata</span>{" "}
+            <span className="text-royal-cream">
+              Hyderabadi, Lucknowi, and Kolkata
+            </span>{" "}
             biryanis—we craft a truly royal dining experience for our guests.
           </p>
         </div>
 
         {/* Biryani type cards */}
-        <div className="mission-cards grid sm:grid-cols-2 gap-6 lg:gap-8">
+        <div className="mission-cards grid sm:grid-cols-3 gap-6 lg:gap-8">
           {BIRYANI_TYPES.map((item) => (
             <div
               key={item.type}
