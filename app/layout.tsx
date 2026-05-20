@@ -26,17 +26,17 @@ export default function RootLayout({
       lang="en"
       className="scroll-smooth"
     >
-      <meta
-        name="google-site-verification"
-        content="yEZGAqtrOTpFb0c2H_j6FD1QMHzXdTtGzVhkSrUfxL0"
-      />
-
-      <meta
-        name="google-site-verification"
-        content="ejwYhfhK1GoyaeDgiMEBlYMcGuE6dmZKejRUGv1OZmQ"
-      />
-
       <head>
+        <meta
+          name="google-site-verification"
+          content="yEZGAqtrOTpFb0c2H_j6FD1QMHzXdTtGzVhkSrUfxL0"
+        />
+
+        <meta
+          name="google-site-verification"
+          content="ejwYhfhK1GoyaeDgiMEBlYMcGuE6dmZKejRUGv1OZmQ"
+        />
+
         <link
           rel="preconnect"
           href="https://fonts.googleapis.com"
