@@ -82,9 +82,10 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const city = CITY_DATA[params.slug];
+  const { slug } = await params;
+  const city = CITY_DATA[slug];
   if (!city) return {};
 
   return {
@@ -100,12 +101,12 @@ export async function generateMetadata({
       `biryani order online ${city.name}`,
     ],
     alternates: {
-      canonical: `${siteUrl}/city/${params.slug}`,
+      canonical: `${siteUrl}/city/${slug}`,
     },
     openGraph: {
       title: `State of Biryani ${city.name} — Fresh Dum Biryani Delivery`,
       description: `Fresh dum biryani delivered in 30–40 minutes in ${city.name}. Authentic. Royal. Never reheated.`,
-      url: `${siteUrl}/city/${params.slug}`,
+      url: `${siteUrl}/city/${slug}`,
       siteName: "State of Biryani",
       images: [
         {
@@ -129,10 +130,10 @@ function getCityJsonLd(slug: string, city: { name: string; state: string }) {
     name: "State of Biryani",
     description: `Fresh dum-cooked biryani delivery in ${city.name} — Hyderabadi, Lucknowi & Champaran biryani in 30–40 minutes.`,
     url: `${siteUrl}/city/${slug}`,
-    logo: `${siteUrl}/logo.png`,
+    logo: `${siteUrl}/logo-small.png`,
     image: `${siteUrl}/og-image.jpg`,
     servesCuisine: ["Indian", "Biryani", "Mughlai"],
-    priceRange: "₹₹",
+    priceRange: "INR",
     areaServed: [
       {
         "@type": "City",
@@ -163,14 +164,15 @@ function getCityJsonLd(slug: string, city: { name: string; state: string }) {
 // ---- Page Component --------------------------------------------------------
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-export default function CityPage({ params }: Props) {
-  const city = CITY_DATA[params.slug];
+export default async function CityPage({ params }: Props) {
+  const { slug } = await params;
+  const city = CITY_DATA[slug];
   if (!city) notFound();
 
-  const jsonLd = getCityJsonLd(params.slug, city);
+  const jsonLd = getCityJsonLd(slug, city);
 
   const BIRYANI_TYPES = [
     {

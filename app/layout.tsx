@@ -5,7 +5,7 @@ const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL || "https://www.stateofbiryani.com";
 const title = "State of Biryani | Fresh Dum Biryani Delivery Across India";
 const description =
-  "State of Biryani delivers authentic dum-cooked Hyderabadi, Lucknowi & Champaran biryani fresh to your door in 30–40 min. 50+ cities across India.";
+  "State of Biryani delivers authentic dum-cooked Hyderabadi, Lucknowi & Champaran biryani fresh to your door in 30-40 min. 50+ cities across India.";
 
 const jsonLd = [
   {
@@ -15,12 +15,11 @@ const jsonLd = [
     description:
       "India's leading cloud kitchen delivering fresh dum-cooked biryani across 50+ cities.",
     url: siteUrl,
-    logo: `${siteUrl}/logo.png`,
+    logo: `${siteUrl}/logo-small.png`,
     image: `${siteUrl}/og-image.jpg`,
     servesCuisine: ["Indian", "Biryani", "Mughlai"],
-    // NOTE: Add hasMenu back once /menu page is live:
-    // hasMenu: `${siteUrl}/menu`,
-    priceRange: "₹₹",
+    hasMenu: `${siteUrl}/menu`,
+    priceRange: "INR",
     sameAs: [
       "https://www.instagram.com/stateofbiryani",
       "https://www.facebook.com/profile.php?id=61588861154943",
@@ -31,7 +30,7 @@ const jsonLd = [
     },
     offers: {
       "@type": "Offer",
-      description: "Fresh dum biryani delivered in 30–40 minutes",
+      description: "Fresh dum biryani delivered in 30-40 minutes",
     },
   },
   {
@@ -39,11 +38,15 @@ const jsonLd = [
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-      // NOTE: Add Menu breadcrumb back once /menu is live
-      // { "@type": "ListItem", position: 2, name: "Menu", item: `${siteUrl}/menu` },
       {
         "@type": "ListItem",
         position: 2,
+        name: "Menu",
+        item: `${siteUrl}/menu`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
         name: "Contact",
         item: `${siteUrl}/contact`,
       },
@@ -66,7 +69,7 @@ const jsonLd = [
         name: "How long does biryani delivery take?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "State of Biryani delivers fresh dum-cooked biryani to your door in 30–40 minutes.",
+          text: "State of Biryani delivers fresh dum-cooked biryani to your door in 30-40 minutes.",
         },
       },
       {
@@ -111,22 +114,34 @@ export const metadata: Metadata = {
   description,
   keywords: [
     "State of Biryani",
+    "state of biryani",
+    "State Of Biryani menu",
+    "State of Biryani order online",
+    "State of Biryani near me",
     "biryani delivery India",
+    "fresh biryani delivery India",
     "dum biryani",
+    "dum biryani delivery",
+    "authentic dum biryani",
     "cloud kitchen biryani",
+    "biryani cloud kitchen India",
     "fresh biryani near me",
     "Hyderabadi biryani delivery",
     "Lucknowi biryani online",
-    "biryani 30 minutes delivery",
+    "Champaran mutton biryani",
+    "biryani 30-40 minutes delivery",
     "best biryani delivery India",
+    "royal biryani delivery",
+    "bulk biryani orders",
+    "biryani catering India",
   ],
   alternates: {
     canonical: siteUrl,
   },
   openGraph: {
-    title: "State of Biryani — India's Royal Cloud Kitchen",
+    title: "State of Biryani - India's Royal Cloud Kitchen",
     description:
-      "Fresh dum-cooked biryani delivered in 30–40 minutes. 50+ cities. Never reheated.",
+      "Fresh dum-cooked biryani delivered in 30-40 minutes. 50+ cities. Never reheated.",
     url: siteUrl,
     siteName: "State of Biryani",
     images: [
@@ -134,7 +149,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "State of Biryani — fresh dum biryani delivered to your door",
+        alt: "State of Biryani - fresh dum biryani delivered to your door",
       },
     ],
     locale: "en_IN",
@@ -142,8 +157,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "State of Biryani — Fresh Dum Biryani Delivered",
-    description: "Fresh dum biryani in 30–40 min | 50+ cities across India",
+    title: "State of Biryani - Fresh Dum Biryani Delivered",
+    description: "Fresh dum biryani in 30-40 min | 50+ cities across India",
     images: ["/og-image.jpg"],
   },
   robots: {

@@ -32,13 +32,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
-    // NOTE: Uncomment once /menu page is live
-    // {
-    //   url: `${siteUrl}/menu`,
-    //   lastModified,
-    //   changeFrequency: "weekly",
-    //   priority: 0.9,
-    // },
+    {
+      url: `${siteUrl}/menu`,
+      lastModified,
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
     {
       url: `${siteUrl}/privacy`,
       lastModified,
@@ -53,7 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  // City landing pages — high-intent local search traffic
+  // City landing pages - high-intent local search traffic
   const cityRoutes: MetadataRoute.Sitemap = CITY_SLUGS.map((slug) => ({
     url: `${siteUrl}/city/${slug}`,
     lastModified,
