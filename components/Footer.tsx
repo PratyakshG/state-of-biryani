@@ -15,9 +15,9 @@ const FOOTER_LINKS = {
     { label: "Our Ethos", href: "#ethos" },
   ],
   Cities: [
-    { label: "Delhi NCR", href: "#cities" },
-    { label: "Mumbai", href: "#cities" },
-    { label: "Bangalore", href: "#cities" },
+    { label: "Delhi NCR", href: "/city/new-delhi" },
+    { label: "Mumbai", href: "/city/mumbai" },
+    { label: "Bangalore", href: "/city/bangalore" },
     { label: "View All", href: "#cities" },
   ],
   Corporate: [
@@ -70,11 +70,11 @@ export default function Footer() {
               <span className="italic text-gold-clip">Royalty?</span>
             </h3>
             <p className="font-body text-sm text-royal-cream-muted">
-              Order fresh dum biryani—delivered in 30–40 minutes.
+              Order fresh dum biryani delivered in 30-40 minutes.
             </p>
           </div>
           <a
-            href="#"
+            href="/contact"
             className="flex-shrink-0 font-body text-[11px] tracking-[0.2em] uppercase px-9 py-4 bg-royal-gold text-royal-black font-semibold hover:bg-royal-gold-light transition-colors duration-300 whitespace-nowrap"
           >
             Order Now
@@ -154,7 +154,7 @@ export default function Footer() {
                 },
                 {
                   label: "X/Twitter",
-                  link: "#",
+                  link: "https://x.com/stateofbiryani",
                   icon: (
                     <svg
                       width="16"
@@ -170,7 +170,9 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.link}
-                  aria-label={social.label}
+                  aria-label={`Follow State of Biryani on ${social.label}`}
+                  rel="noopener noreferrer"
+                  target="_blank"
                   className="w-9 h-9 border border-royal-border flex items-center justify-center text-royal-cream-dim hover:border-royal-gold hover:text-royal-gold transition-all duration-300"
                 >
                   {social.icon}
@@ -214,19 +216,19 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-6">
             <a
-              href="#"
+              href="/privacy"
               className="font-body text-xs text-royal-cream-dim hover:text-royal-cream-muted transition-colors duration-300"
             >
               Privacy Policy
             </a>
             <a
-              href="#"
+              href="/terms"
               className="font-body text-xs text-royal-cream-dim hover:text-royal-cream-muted transition-colors duration-300"
             >
               Terms of Service
             </a>
             <a
-              href="#"
+              href="/contact"
               className="font-body text-xs text-royal-cream-dim hover:text-royal-cream-muted transition-colors duration-300"
             >
               Contact

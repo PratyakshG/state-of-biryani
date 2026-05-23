@@ -41,53 +41,32 @@ export default function Mission() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".mission-header > *",
-        { y: 35, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          stagger: 0.15,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".mission-header",
-            start: "top 80%",
-          },
-        },
-      );
+      gsap.from(".mission-header > *", {
+        y: 35,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".mission-header", start: "top 80%" },
+      });
 
-      gsap.fromTo(
-        ".mission-card",
-        { y: 50, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          stagger: 0.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".mission-cards",
-            start: "top 78%",
-          },
-        },
-      );
+      gsap.from(".mission-card", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".mission-cards", start: "top 78%" },
+      });
 
-      gsap.fromTo(
-        ".mission-note",
-        { scale: 0.8, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 0.5,
-          stagger: 0.06,
-          ease: "back.out(1.4)",
-          scrollTrigger: {
-            trigger: ".mission-cards",
-            start: "top 70%",
-          },
-        },
-      );
+      gsap.from(".mission-note", {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.06,
+        ease: "back.out(1.4)",
+        scrollTrigger: { trigger: ".mission-cards", start: "top 70%" },
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -100,13 +79,10 @@ export default function Mission() {
       className="relative py-28 lg:py-40 bg-royal-dark overflow-hidden"
     >
       <div className="absolute inset-0 bg-section-glow pointer-events-none" />
-
-      {/* Horizontal ornament lines */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-royal-border to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-royal-border to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
-        {/* Header */}
         <div className="mission-header mb-16 lg:mb-24 max-w-3xl">
           <div className="relative overflow-visible mb-6">
             <span className="section-num absolute -top-6 -left-2 select-none pointer-events-none text-royal-border/25">
@@ -135,23 +111,18 @@ export default function Mission() {
           </p>
         </div>
 
-        {/* Biryani type cards */}
         <div className="mission-cards grid sm:grid-cols-3 gap-6 lg:gap-8">
           {BIRYANI_TYPES.map((item) => (
             <div
               key={item.type}
               className="mission-card card-glow bg-royal-card p-8 lg:p-10 relative overflow-hidden group"
             >
-              {/* Background letter */}
               <span className="absolute right-6 bottom-4 font-display text-8xl font-bold text-royal-border/40 leading-none select-none pointer-events-none group-hover:text-royal-border/60 transition-colors duration-500">
                 {item.icon}
               </span>
-
-              {/* Gradient accent top */}
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-royal-gold/40 via-royal-gold to-royal-gold/40" />
 
               <div className="relative z-10">
-                {/* Style badge */}
                 <div className="flex items-center gap-3 mb-6">
                   <span className="font-body text-[10px] tracking-[0.35em] uppercase text-royal-gold border border-royal-gold-dim px-3 py-1">
                     {item.style} Method
@@ -173,7 +144,6 @@ export default function Mission() {
                   {item.description}
                 </p>
 
-                {/* Flavor notes */}
                 <div>
                   <p className="font-body text-[9px] tracking-[0.35em] uppercase text-royal-cream-dim mb-3">
                     Key Notes
@@ -194,7 +164,6 @@ export default function Mission() {
           ))}
         </div>
 
-        {/* Bottom quote */}
         <div className="mt-16 pt-12 border-t border-royal-border flex flex-col sm:flex-row items-start sm:items-center gap-6">
           <div className="h-10 w-px bg-royal-gold flex-shrink-0 hidden sm:block" />
           <p className="font-display text-2xl lg:text-3xl italic text-royal-cream-muted font-light leading-relaxed">

@@ -11,51 +11,45 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ delay: 0.1 });
 
-      tl.fromTo(
+      tl.from(
         ".hero-eyebrow",
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" },
+        { y: 20, opacity: 0, duration: 0.8, ease: "power2.out" },
       )
-        .fromTo(
+        .from(
           ".hero-word",
-          { y: "110%", opacity: 0 },
           {
-            y: "0%",
-            opacity: 1,
+            y: "110%",
+            opacity: 0,
             duration: 1.1,
             stagger: 0.12,
             ease: "power4.out",
           },
           "-=0.3",
         )
-        .fromTo(
+        .from(
           ".hero-ornament",
-          { scaleX: 0, opacity: 0 },
-          { scaleX: 1, opacity: 1, duration: 1.2, ease: "power3.inOut" },
+          { scaleX: 0, opacity: 0, duration: 1.2, ease: "power3.inOut" },
           "-=0.6",
         )
-        .fromTo(
+        .from(
           ".hero-desc",
-          { y: 24, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.9, ease: "power2.out" },
+          { y: 24, opacity: 0, duration: 0.9, ease: "power2.out" },
           "-=0.6",
         )
-        .fromTo(
+        .from(
           ".hero-btn",
-          { y: 20, opacity: 0 },
           {
-            y: 0,
-            opacity: 1,
+            y: 20,
+            opacity: 0,
             duration: 0.7,
             stagger: 0.12,
             ease: "power2.out",
           },
           "-=0.5",
         )
-        .fromTo(
+        .from(
           ".hero-stat",
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out" },
+          { y: 20, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out" },
           "-=0.4",
         );
     }, heroRef);
@@ -85,9 +79,11 @@ export default function Hero() {
 
         <Image
           src="/home-biryani.png"
-          alt="biryani"
+          alt="State of Biryani authentic dum biryani served fresh — order online"
           height={800}
           width={800}
+          priority
+          sizes="(min-width: 1024px) 50vw, 0px"
           className="absolute right-0 lg:bottom-1/3 hero-word aspect-square size-1/2 max-md:hidden"
         />
       </div>
@@ -102,13 +98,14 @@ export default function Hero() {
           <div className="hidden sm:block h-px w-10 bg-royal-gold-muted" />
         </div>
 
-        {/* Main headline — each word clip-wrapped for GSAP reveal */}
+        {/* Main headline */}
         <div className="mb-10">
           <div className="clip-overflow mb-1">
             <h1 className="font-display font-light text-7xl sm:text-8xl lg:text-9xl xl:text-[10rem] leading-none tracking-tight text-royal-cream max-w-3xl">
-              <span className="hero-word">Experience</span>{" "}
-              <span className="hero-word italic text-gold-clip">Royalty—</span>{" "}
-              <span className="hero-word">Delivered</span>
+              <span className="hero-word">State of Biryani —</span>{" "}
+              <span className="hero-word block italic text-gold-clip text-5xl sm:text-6xl lg:text-7xl xl:text-8xl">
+                Fresh Dum Biryani Delivered to Your Door
+              </span>
             </h1>
           </div>
         </div>
@@ -116,26 +113,24 @@ export default function Hero() {
         {/* Ornamental divider */}
         <div className="hero-ornament flex items-center gap-5 mb-10 origin-left">
           <div className="flex-1 max-w-[14rem] h-px bg-gradient-to-r from-royal-gold-muted to-royal-gold/20" />
-
           <div className="hidden sm:block w-2 h-2 border border-royal-gold-muted rotate-45 flex-shrink-0" />
-
           <div className="flex-1 max-w-[14rem] h-px bg-gradient-to-l from-royal-gold-muted to-royal-gold/20" />
         </div>
 
         {/* Description */}
         <p className="hero-desc font-body text-base lg:text-lg text-royal-cream-muted leading-relaxed max-w-xl mb-10">
-          SOB - India's most leading biryani delivery chain. Fresh{" "}
+          State of Biryani is India's royal cloud kitchen for fresh{" "}
           <span className="text-royal-cream font-medium">
             dum-cooked biryanis
           </span>{" "}
-          delivered to your door with authentic shaahi style—in just{" "}
+          delivered to your door with authentic shaahi style in just{" "}
           <span className="text-royal-gold font-semibold">30-40 minutes.</span>
         </p>
 
         {/* CTAs */}
         <div className="flex flex-wrap items-center gap-4 mb-16">
           <a
-            href="#"
+            href="/contact"
             className="hero-btn font-body text-[11px] tracking-[0.2em] uppercase px-9 py-4 bg-royal-gold text-royal-black font-semibold hover:bg-royal-gold-light transition-colors duration-300 relative overflow-hidden group"
           >
             <span className="relative z-10">Order Now</span>
@@ -166,7 +161,7 @@ export default function Hero() {
         <div className="border-t border-royal-border pt-8 flex flex-wrap gap-8 lg:gap-16">
           {[
             { value: "50+", label: "Cities & Expanding" },
-            { value: "30–40", label: "Min Fresh Delivery" },
+            { value: "30-40", label: "Min Fresh Delivery" },
             { value: "100%", label: "Never Reheated" },
           ].map((stat) => (
             <div
