@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,92 +24,70 @@ const EXPAND_CITIES = [
   "Bangalore",
 ];
 
+// Maps display names to URL slugs used by the city page router
+const CITY_SLUG_MAP: Record<string, string> = {
+  "Delhi NCR":   "new-delhi",
+  "Mumbai":      "mumbai",
+  "Pune":        "pune",
+  "Lucknow":     "lucknow",
+  "Kolkata":     "kolkata",
+  "Punjab":      "patiala",   // Punjab links to Patiala as representative city
+  "Jaipur":      "jaipur",
+  "Bhubaneswar": "bhubaneswar",
+  "Patna":       "patna",
+  "Ranchi":      "ranchi",
+  "Guwahati":    "guwahati",
+  "Jamshedpur":  "jamshedpur",
+  "Goa":         "goa",
+  "Bangalore":   "bangalore",
+};
+
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Section number
-      gsap.fromTo(
-        ".about-num",
-        { x: -40, opacity: 0 },
-        {
-          x: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".about-num",
-            start: "top 85%",
-          },
-        }
-      );
+      gsap.from(".about-num", {
+        x: -40,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".about-num", start: "top 85%" },
+      });
 
-      // Left column
-      gsap.fromTo(
-        ".about-left > *",
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          stagger: 0.15,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".about-left",
-            start: "top 80%",
-          },
-        }
-      );
+      gsap.from(".about-left > *", {
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".about-left", start: "top 80%" },
+      });
 
-      // Right text
-      gsap.fromTo(
-        ".about-right > *",
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.9,
-          stagger: 0.12,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: ".about-right",
-            start: "top 80%",
-          },
-        }
-      );
+      gsap.from(".about-right > *", {
+        y: 30,
+        opacity: 0,
+        duration: 0.9,
+        stagger: 0.12,
+        ease: "power2.out",
+        scrollTrigger: { trigger: ".about-right", start: "top 80%" },
+      });
 
-      // City pills stagger
-      gsap.fromTo(
-        ".city-pill",
-        { scale: 0.85, opacity: 0 },
-        {
-          scale: 1,
-          opacity: 1,
-          duration: 0.5,
-          stagger: 0.04,
-          ease: "back.out(1.5)",
-          scrollTrigger: {
-            trigger: ".cities-pills",
-            start: "top 85%",
-          },
-        }
-      );
+      gsap.from(".city-pill", {
+        scale: 0.85,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.04,
+        ease: "back.out(1.5)",
+        scrollTrigger: { trigger: ".cities-pills", start: "top 85%" },
+      });
 
-      // Horizontal line expand
-      gsap.fromTo(
-        ".about-divider",
-        { scaleX: 0 },
-        {
-          scaleX: 1,
-          duration: 1.5,
-          ease: "power3.inOut",
-          scrollTrigger: {
-            trigger: ".about-divider",
-            start: "top 90%",
-          },
-        }
-      );
+      gsap.from(".about-divider", {
+        scaleX: 0,
+        duration: 1.5,
+        ease: "power3.inOut",
+        scrollTrigger: { trigger: ".about-divider", start: "top 90%" },
+      });
     }, sectionRef);
 
     return () => ctx.revert();
@@ -143,10 +122,10 @@ export default function About() {
           {/* Left */}
           <div className="about-left">
             <h2 className="font-display text-5xl sm:text-6xl lg:text-7xl font-light leading-tight text-royal-cream mb-8">
-              India's{" "}
+              Fresh Dum{" "}
               <span className="italic text-gold-clip">Biryani</span>
               <br />
-              Kingdom
+              Delivery Across India
             </h2>
 
             <div className="about-divider w-full h-px bg-royal-border origin-left mb-8" />
@@ -207,16 +186,20 @@ export default function About() {
               </p>
               <div className="cities-pills flex flex-wrap gap-2">
                 {EXPAND_CITIES.map((city) => (
-                  <span
+                  <Link
                     key={city}
+                    href={`/city/${CITY_SLUG_MAP[city]}`}
                     className="city-pill font-body text-xs text-royal-cream-muted border border-royal-border px-3 py-1.5 hover:border-royal-gold-muted hover:text-royal-gold transition-all duration-300"
                   >
                     {city}
-                  </span>
+                  </Link>
                 ))}
-                <span className="city-pill font-body text-xs text-royal-gold border border-royal-gold-dim px-3 py-1.5">
+                <Link
+                  href="#cities"
+                  className="city-pill font-body text-xs text-royal-gold border border-royal-gold-dim px-3 py-1.5 hover:border-royal-gold transition-colors duration-300"
+                >
                   + Many More
-                </span>
+                </Link>
               </div>
             </div>
           </div>

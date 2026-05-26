@@ -60,10 +60,11 @@ export default function Navbar() {
           >
             <div className="relative">
               <Image
-                src="/logo.png"
-                alt="biryani"
+                src="/logo-small.png"
+                alt="State of Biryani logo"
                 height={50}
                 width={50}
+                sizes="50px"
                 className="right-0"
               />
             </div>
@@ -95,7 +96,7 @@ export default function Navbar() {
           {/* CTA + Hamburger */}
           <div className="flex items-center gap-4">
             <a
-              href="#"
+              href="/contact"
               className="nav-animate hidden sm:block font-body text-[11px] tracking-[0.2em] uppercase px-6 py-2.5 border border-royal-gold text-royal-gold hover:bg-royal-gold hover:text-royal-black transition-all duration-300"
             >
               Order Now
@@ -139,7 +140,7 @@ export default function Navbar() {
           </Link>
         ))}
         <a
-          href="#"
+          href="/contact"
           className="mt-4 font-body text-xs tracking-[0.2em] uppercase px-8 py-3 border border-royal-gold text-royal-gold"
         >
           Order Now
